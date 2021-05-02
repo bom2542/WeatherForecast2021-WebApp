@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[ Welcome ] WeatherForecast2021</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Prompt', sans-serif;
+        }
+    </style>
 </head>
 <body>
     
     <div class="container">
-    <h1 class="mt-5">Infomation Page</h1>
-    <a href="insert.php" class="btn btn-success">Go to Insert</a>
-    <hr>
-    
+        <h1 class="mt-5" align="center">ระบบแสดงผลการพยากรณ์อากาศ</h1>
+        <hr>
+
     </div>
 
 
