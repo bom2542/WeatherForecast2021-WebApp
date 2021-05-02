@@ -1,0 +1,109 @@
+<?php
+
+    //datebase historical data
+    //update datetime
+    //region int
+    //description string
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
+    //echo $xml->channel->item->pubDate . "<br/>";
+    //$pubDate = explode(" ", $xml->channel->item->pubDate);
+    //print_r($pubDate);
+    //echo date("Y-m-d H:i:s",strtotime($pubDate[1] . $pubDate[2] . $pubDate[3] . $pubDate[4] )) . "<br/><br/><br/><br/><br/><br/>";
+
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=1");
+    echo $xml->channel->item->guid . "<br/>";
+    //echo $xml->channel->item->description . "<br/><br/><br/><br/><br/><br/><br/>";
+    $description = explode("<br />", $xml->channel->item->description);
+    //print_r($description);
+    //echo "<br/><br/><br/><br/>0". $description[0] . "<br/><br/><br/><br/>";
+
+
+    echo "<br/><br/><br/><br/><br/>" . "1". $description[1] . "<br/><br/><br/><br/><br/>";
+
+
+    // echo "2". $description[2] . "<br/><br/><br/><br/><br/>";
+    // echo "3". $description[3] . "<br/><br/><br/><br/><br/>";
+    // echo "4". $description[4] . "<br/><br/><br/><br/><br/>";
+    // echo "5". $description[5] . "<br/><br/><br/><br/><br/>";
+    // echo "6". $description[6] . "<br/><br/><br/><br/><br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=2");
+    //echo $xml->channel->item->description . "<br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=3");
+    //echo $xml->channel->item->description . "<br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=4");
+    //echo $xml->channel->item->description . "<br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=5");
+    //echo $xml->channel->item->description . "<br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=6");
+    //echo $xml->channel->item->description . "<br/>";
+
+    $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=7");
+    //echo $xml->channel->item->description . "<br/>";
+
+?>
+----------------------------------------------
+<table id="mytable" class="table table-bordered table-striped">
+        <thead>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Address</th>
+            <th>Posting Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+
+        <tbody>
+            <?php 
+
+                include_once('functions.php');
+                $fetchdata = new DB_con();
+                $sql = $fetchdata->fetchdata();
+                while($row = mysqli_fetch_array($sql)) {
+
+            ?>
+
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['firstname']; ?></td>
+                    <td><?php echo $row['lastname']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['phonenumber']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['postingdate']; ?></td>
+                    <td><a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a></td>
+                    <td><a href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+                </tr>
+
+            <?php 
+
+                }
+            ?>
+        </tbody>
+    </table>
+----------------------------------------------------------
+#api weather forecast
+https://data.tmd.go.th/api/WeatherForecastDaily/V1/?type=json
+https://data.tmd.go.th/api/WeatherForecastDaily/V1/?uid=u64B6134228&ukey=a486fd1e00c50419c63200cc87726972&type=json
+https://data.tmd.go.th/api/WeatherForecastDaily/V1/&type=json
+----------------------------------------------------------
+uid : u64B6134228
+ukey : a486fd1e00c50419c63200cc87726972
+---------------------------------------------------------
+http://data.tmd.go.th/api/WeatherWarningNews/v1/?uid=demo&ukey=demokey&format=json
+---------------------------------------------------------
+<script>
+    fetch('https://data.tmd.go.th/api/WeatherForecastDaily/V1/?uid=u64B6134228&ukey=a486fd1e00c50419c63200cc87726972&type=json')
+        .then(Response => Response.json())
+        .then(data => console.log(data));
+</script>
+----------------------------------------------------------
