@@ -1,4 +1,4 @@
-<?php include_once('php/fn.php'); ?>
+<?php include_once('obj/fn.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
                 <h1 class="mt-5 font-weight-bold" align="center">ระบบแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h1>
                 <hr>
                 <?php
-                $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
+                $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.obj?RegionID=0");
                 $pubDate = explode(" ", $xml->channel->item->pubDate);
                 $update = date("Y-m-d H:i:s",strtotime($pubDate[1] . $pubDate[2] . $pubDate[3] . $pubDate[4]));
 
