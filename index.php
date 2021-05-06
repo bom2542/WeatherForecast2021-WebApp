@@ -1,3 +1,4 @@
+<?php include_once('php/fn.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,95 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container">
-        <h1 class="mt-5" align="center">ระบบแสดงผลการพยากรณ์อากาศ</h1>
-        <hr>
+        <!-- Topic -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-5 font-weight-bold" align="center">ระบบแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h1>
+                <hr>
+                <?php
+                $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
+                $pubDate = explode(" ", $xml->channel->item->pubDate);
+                $update = date("Y-m-d H:i:s",strtotime($pubDate[1] . $pubDate[2] . $pubDate[3] . $pubDate[4]));
+
+                $updateuser = new DB_con();
+                $sql = $updateuser->DateThai($update);
+                echo "<h6 align='right'>ข้อมูลล่าสุด: " . $sql . "</h6>";
+                ?>
+            </div>
+        </div>
+        <!-- content#1 -->
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคเหนือ</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคตะวันออกเฉียงเหนือ</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคกลาง</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content#2 -->
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคตะวันออก</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคใต้(ฝั่งตะวันออก)</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">ภาคใต้(ฝั่งตะวันตก)</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">กรุงเทพมหานครและปริมณฑล</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
