@@ -20,10 +20,10 @@
         <!-- Topic -->
         <div class="row">
             <div class="col-md-12">
-                <h1 class="mt-5 font-weight-bold" align="center">ระบบแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h1>
+                <h2 class="mt-5 font-weight-bold" align="center">ระบบแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h2>
                 <hr>
                 <?php
-                $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.obj?RegionID=0");
+                $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
                 $pubDate = explode(" ", $xml->channel->item->pubDate);
                 $update = date("Y-m-d H:i:s",strtotime($pubDate[1] . $pubDate[2] . $pubDate[3] . $pubDate[4]));
 
@@ -33,11 +33,11 @@
                 ?>
             </div>
         </div>
-        <!-- content#1 -->
+
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/10.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคเหนือ</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -46,7 +46,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/11.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคตะวันออกเฉียงเหนือ</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -55,7 +55,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/12.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคกลาง</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -63,11 +63,11 @@
                 </div>
             </div>
         </div>
-        <!-- content#2 -->
+
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/13.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคตะวันออก</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -76,7 +76,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/14.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคใต้(ฝั่งตะวันออก)</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -85,7 +85,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/15.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">ภาคใต้(ฝั่งตะวันตก)</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -93,10 +93,11 @@
                 </div>
             </div>
         </div>
+
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/16.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">กรุงเทพมหานครและปริมณฑล</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -104,7 +105,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
