@@ -20,7 +20,7 @@
         <!-- Topic -->
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mt-5 font-weight-bold" align="center">ระบบแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h2>
+                <h2 class="mt-5 font-weight-bold" align="center">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h2>
                 <hr>
                 <?php
                 $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
@@ -35,6 +35,15 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+            <div class="col">
+                <div class="card">
+                    <img src="img/16.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">กรุงเทพมหานครและปริมณฑล</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
             <div class="col">
                 <div class="card">
                     <img src="img/10.jpg" class="card-img-top">
@@ -53,6 +62,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
                     <img src="img/12.jpg" class="card-img-top">
@@ -62,9 +74,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
                     <img src="img/13.jpg" class="card-img-top" alt="...">
@@ -83,6 +92,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             <div class="col">
                 <div class="card">
                     <img src="img/15.jpg" class="card-img-top" alt="...">
@@ -94,15 +106,9 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-            <div class="col">
-                <div class="card">
-                    <img src="img/16.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title font-weight-bold">กรุงเทพมหานครและปริมณฑล</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
+        <div class="row mt-5 mb-3">
+            <div class="col-md-12" align="center">
+                © 2021 All rights reserved | Dev by <a style="text-decoration: none;" href="https://www.facebook.com/PharadornB/">Pharadorn Boonruam</a>
             </div>
         </div>
     </div>
