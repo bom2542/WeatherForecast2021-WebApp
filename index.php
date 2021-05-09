@@ -1,4 +1,4 @@
-<?php include_once('obj/fn.php'); ?>
+<?php include_once('function.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -44,7 +50,7 @@
         </div>
 
         <!-- card row 1 -->
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
             <!-- bangkok daily forecast card-->
             <div class="col">
                 <?php
@@ -457,6 +463,53 @@
             </div>
         </div>
 
+        <!-- Historical weather daily forecast -->
+        <div class="row mt-3" align="center">
+            <div class="col-md-12 mt-2">
+                <h4 class="mt-5 font-weight-bold">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค(ย้อนหลัง)</h4>
+                <hr/>
+            </div>
+            <div class="col-md-2 mt-3" align="left">
+                <h6 class="font-weight-bold">เลือกช่วงของข้อมูล : </h6>
+            </div>
+            <div class="col-md-4 mt-2" align="center">
+                <input type="text" name="From" id="From" class="form-control" placeholder="วันเริ่มต้น"/>
+            </div>
+            <div class="col-md-4 mt-2" align="center">
+                <input type="text" name="to" id="to" class="form-control" placeholder="วันสิ้นสุด"/>
+            </div>
+            <div class="col-md-2 mt-2"align="center">
+                <input type="button" name="range" id="range" value="กรองข้อมูล" class="btn btn-success"/>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row mt-2 mb-5" align="center">
+            <?php
+            include_once("dbcon.php");
+            $query = "SELECT * FROM orders ORDER BY id desc";
+            $sql = mysqli_query($conn, $query);
+            ?>
+            <div id="purchase_order">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="100">ID</th>
+                        <th>Customer Name</th>
+                        <th>Purchased Item</th>
+                        <th>Purchased Date</th>
+                        <th width="100">Price</th>
+                    </tr>
+                    <?php while($row= mysqli_fetch_array($sql)) { ?>
+                        <tr>
+                            <td><?php echo $row["id"]; ?></td>
+                            <td><?php echo $row["customer_name"]; ?></td>
+                            <td><?php echo $row["purchased_items"]; ?></td>
+                            <td><?php echo $row["purchased_date"]; ?></td>
+                            <td>$ <?php echo $row["price"]; ?></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+        </div>
+
         <div class="row mt-5 mb-3">
             <!-- footer -->
             <div class="col-md-12" align="center">
@@ -467,5 +520,39 @@
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.map"></script>
+    <script>
+        $(document).ready(function(){
+            $.datepicker.setDefaults({
+                dateFormat: 'yy-mm-dd'
+            });
+            $(function(){
+                $("#From").datepicker();
+                $("#to").datepicker();
+            });
+
+            $('#range').click(function(){
+                var From = $('#From').val();
+                var to = $('#to').val();
+                if(From != '' && to != '')
+                {
+                    $.ajax({
+                        url:"forecast.php",
+                        method:"POST",
+                        data:{From:From, to:to},
+                        success:function(data)
+                        {
+                            $('#purchase_order').html(data);
+                            $('#purchase_order').append(data.htmlresponse);
+                        }
+                    });
+                }
+                else
+                {
+                    alert("Please Select the Date");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

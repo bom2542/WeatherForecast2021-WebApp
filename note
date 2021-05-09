@@ -1,3 +1,37 @@
+host test name
+ข้อมูลการใช้งานโฮสติ้ง
+
+Username: pharadornl
+Password: 4G2hqd!_-7
+
+หน้าเว็บแสดงผล
+มีโดเมนแล้ว	http://www.pharadorn.lnw.mn/ [1]
+
+ข้อมูล FTP
+Host	edu3.pathosting.com   หรือ   ftp.pharadorn.lnw.mn [1]
+Username	pharadornl
+Password	4G2hqd!_-7
+Port	21
+
+Control Panel (DirectAdmin) (เข้าทางใดก็ได้)
+(พอร์ท 2222)	ผ่านไอพี	http://edu3.pathosting.com:2222/
+ผ่านโดเมนเนม	http://www.pharadorn.lnw.mn:2222/ [1]
+FAQ: ทำไมเข้า DirectAdmin แล้วขึ้นหน้าเตือนเรื่องความปลอดภัย?
+[1] เฉพาะกรณีที่มีโดเมน และตั้ง Name Servers มาที่โฮสติ้งแล้ว
+
+Name Servers
+NS1:	edu3.pathosting.com
+NS2:	edu4.pathosting.com
+Host IP:	61.19.246.116
+
+หน้าเว็บเมล
+ผ่านไอพี	http://61.19.246.116/roundcube/
+ผ่านโดเมนเนม	http://www.pharadorn.lnw.mn/roundcube/ [1]
+-------------------------------------------------
+forecast_daily(id, pubDate, region, description, province_1, province_2, province_3, province_4
+--------------------------------------------------
+ALTER TABLE forecast_daily AUTO_INCREMENT = 0
+--------------------------------------------------
 data-toggle="modal" data-target="#"
 
 <!-- Modal daily forecast -->
