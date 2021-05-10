@@ -1,10 +1,6 @@
 <?php
     include_once('function.php');
     $con_db = new DB_con();
-    $description_6 = "  ";
-    $description_5 = "  ";
-    $description_4 = "  ";
-    $description_3 = "  ";
 
     //date-time
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
@@ -12,6 +8,10 @@
     $update = date("Y-m-d H:i:s",strtotime($pubDate[1] . $pubDate[2] . $pubDate[3] . $pubDate[4]));
 
     /* 1_North */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=1");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -40,6 +40,10 @@
 
 
     /* 2_North East */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=2");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -68,6 +72,10 @@
     
 
     /* 3_Center */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=3");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -97,6 +105,10 @@
 
 
     /* 4_East */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=4");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -125,6 +137,10 @@
 
 
     /* 5_South Thai */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=5");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -153,6 +169,10 @@
 
 
     /* 6_South Andaman */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=6");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);
@@ -182,6 +202,10 @@
 
 
     /* 7_Bangkok */
+    $description_6 = "  ";
+    $description_5 = "  ";
+    $description_4 = "  ";
+    $description_3 = "  ";
     $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=7");
     $region = $xml->channel->item->guid;
     $description = explode("<br />", $xml->channel->item->description);

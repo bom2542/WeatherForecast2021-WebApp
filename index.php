@@ -1,20 +1,25 @@
-<?php include_once('function.php'); ?>
+<?php include_once('historical_api/function.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tag -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[ Welcome ] WeatherForecast2021</title>
+    <!-- Boostrap v5 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <!-- Google font prompt -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <!-- Datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <!-- Datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.css" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- css internal -->
     <link rel="stylesheet" href="style.css">
+    <!-- css inline -->
     <style>
         body {
             font-family: 'Prompt', sans-serif;
@@ -31,11 +36,10 @@
 <body>
 
     <div class="container">
-
         <!-- Topic -->
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mt-5 font-weight-bold" align="center">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค</h2>
+                <h2 class="mt-5 font-weight-bold" align="center">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค(ล่าสุด)</h2>
                 <hr>
                 <?php
                 $xml = simplexml_load_file("https://www.tmd.go.th/xml/region_daily_forecast.php?RegionID=0");
@@ -50,7 +54,7 @@
         </div>
 
         <!-- card row 1 -->
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+        <div class="row row-cols-1 row-cols-lg-3 g-4 mt-1">
             <!-- bangkok daily forecast card-->
             <div class="col">
                 <?php
@@ -96,12 +100,12 @@
                             </div>
                             <div style="text-indent: 2.5em;" class="mt-4 mb-1">
                                 <?php
-                                    echo "<div class='mb-1'>" . $content . "</div><br/>";
-                                    echo $description[2];
-                                    echo "<div style='text-indent: 2.5em;'>" . $description[3] . "</div>";
-                                    echo "<div style='text-indent: 2.5em;'>" . $description[4] . "</div>";
-                                    echo "<div style='text-indent: 2.5em;'>" . $description[5] . "</div>";
-                                    echo "<div style='text-indent: 2.5em;'>" . $description[6] . "</div>";
+                                echo "<div class='mb-1'>" . $content . "</div><br/>";
+                                echo $description[2];
+                                echo "<div style='text-indent: 2.5em;'>" . $description[3] . "</div>";
+                                echo "<div style='text-indent: 2.5em;'>" . $description[4] . "</div>";
+                                echo "<div style='text-indent: 2.5em;'>" . $description[5] . "</div>";
+                                echo "<div style='text-indent: 2.5em;'>" . $description[6] . "</div>";
                                 ?>
                             </div>
                         </div>
@@ -227,7 +231,7 @@
         </div>
 
         <!-- card row 2 -->
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="row row-cols-1 row-cols-lg-3 g-4 mt-2">
             <!-- center daily forecast card-->
             <div class="col">
                 <?php
@@ -403,7 +407,8 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <!-- card row 3 -->
+        <div class="row row-cols-1 row-cols-lg-3 g-4 mt-2">
             <!-- south(andaman gulf) daily forecast card-->
             <div class="col">
                 <?php
@@ -465,49 +470,52 @@
 
         <!-- Historical weather daily forecast -->
         <div class="row mt-3" align="center">
-            <div class="col-md-12 mt-2">
-                <h4 class="mt-5 font-weight-bold">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค(ย้อนหลัง)</h4>
-                <hr/>
+            <div class="col-md-12 mb-3">
+<!--                <h4 class="text-center font-weight-bold">ข้อมูลพยากรณ์อากาศประจำวัน(ย้อนหลัง) ระดับภูมิภาค</h4>-->
+                <h2 class="mt-5 font-weight-bold" align="center">แสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค(ย้อนหลัง)</h2>
+                <hr>
             </div>
-            <div class="col-md-2 mt-3" align="left">
-                <h6 class="font-weight-bold">เลือกช่วงของข้อมูล : </h6>
-            </div>
-            <div class="col-md-4 mt-2" align="center">
-                <input type="text" name="From" id="From" class="form-control" placeholder="วันเริ่มต้น"/>
-            </div>
-            <div class="col-md-4 mt-2" align="center">
-                <input type="text" name="to" id="to" class="form-control" placeholder="วันสิ้นสุด"/>
-            </div>
-            <div class="col-md-2 mt-2"align="center">
-                <input type="button" name="range" id="range" value="กรองข้อมูล" class="btn btn-success"/>
-            </div>
-            <div class="clearfix"></div>
+<!--            <div class="col-md-6">-->
+<!--                <div class="input-group mb-3">-->
+<!--                    <div class="input-group-prepend">-->
+<!--                        <span class="input-group-text bg-info text-white" id="basic-addon1" style="height: 38px;"><i class="fas fa-calendar-alt"></i></span>-->
+<!--                    </div>-->
+<!--                        <input type="text" class="form-control" id="start_date" placeholder="วันเริ่มต้น" readonly>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--                <div class="input-group mb-3">-->
+<!--                    <div class="input-group-prepend">-->
+<!--                        <span class="input-group-text bg-info text-white" id="basic-addon1" style="height: 38px;"><i class="fas fa-calendar-alt"></i></span>-->
+<!--                    </div>-->
+<!--                        <input type="text" class="form-control" id="end_date" placeholder="วันสิ้นสุด" readonly>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
-        <div class="row mt-2 mb-5" align="center">
-            <?php
-            include_once("dbcon.php");
-            $query = "SELECT * FROM orders ORDER BY id desc";
-            $sql = mysqli_query($conn, $query);
-            ?>
-            <div id="purchase_order">
-                <table class="table table-bordered">
+<!--        <div class="row mt-2" align="left">-->
+<!--            <div>-->
+<!--                <button id="filter" class="btn btn-outline-info btn-sm"><i class="fas fa-filter"></i> กรองข้อมูล</button>-->
+<!--                <button id="reset" class="btn btn-outline-warning btn-sm"><i class="fas fa-trash"></i> ล้างการกรอง</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="row mt-3 mb-5" align="center">
+            <div class="table-responsive">
+                <table class="table table-borderless display nowrap" id="records" style="width:100%">
+                    <thead>
                     <tr>
-                        <th width="100">ID</th>
-                        <th>Customer Name</th>
-                        <th>Purchased Item</th>
-                        <th>Purchased Date</th>
-                        <th width="100">Price</th>
+                        <th>ที่</th>
+                        <th>ว/ด/ป. เวลา : </th>
+                        <th>ภูมิภาค : </th>
+                        <th>พยากรณ์ระดับจังหวัดที่ 1 : </th>
+                        <th>พยากรณ์ระดับจังหวัดที่ 2 : </th>
+                        <th>พยากรณ์ระดับจังหวัดที่ 3 : </th>
+                        <th>พยากรณ์ระดับจังหวัดที่ 4 : </th>
+                        <th>ผลการพยากรณ์ประจำวัน(ระดับภูมิภาค) : </th>
                     </tr>
-                    <?php while($row= mysqli_fetch_array($sql)) { ?>
-                        <tr>
-                            <td><?php echo $row["id"]; ?></td>
-                            <td><?php echo $row["customer_name"]; ?></td>
-                            <td><?php echo $row["purchased_items"]; ?></td>
-                            <td><?php echo $row["purchased_date"]; ?></td>
-                            <td>$ <?php echo $row["price"]; ?></td>
-                        </tr>
-                    <?php } ?>
+                    </thead>
                 </table>
+            </div>
         </div>
 
         <div class="row mt-5 mb-3">
@@ -518,41 +526,125 @@
         </div>
     </div>
 
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <!-- Boostrap js v5 -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.map"></script>
-    <script>
-        $(document).ready(function(){
-            $.datepicker.setDefaults({
-                dateFormat: 'yy-mm-dd'
-            });
-            $(function(){
-                $("#From").datepicker();
-                $("#to").datepicker();
-            });
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- Datepicker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.js"></script>
+    <!-- Moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-            $('#range').click(function(){
-                var From = $('#From').val();
-                var to = $('#to').val();
-                if(From != '' && to != '')
-                {
-                    $.ajax({
-                        url:"forecast.php",
-                        method:"POST",
-                        data:{From:From, to:to},
-                        success:function(data)
-                        {
-                            $('#purchase_order').html(data);
-                            $('#purchase_order').append(data.htmlresponse);
-                        }
-                    });
-                }
-                else
-                {
-                    alert("Please Select the Date");
-                }
+    <!-- Use datepicker from jquery -->
+    <script>
+        $(function() {
+            $("#start_date").datepicker({
+                "dateFormat": "dd/mm/yy"
+                // "timepicker" : "false" ,
+                // "lang" : "th",  // แสดงภาษาไทย
+                // "yearOffset" : "543",  // ใช้ปี พ.ศ. บวก 543 เพิ่มเข้าไปในปี ค.ศ
+                // "inline" : "true"
+            });
+            $("#end_date").datepicker({
+                "dateFormat": "dd/mm/yy"
             });
         });
     </script>
+
+    <!-- fetch data from api using ajax-->
+    <script>
+        function fetch(start_date, end_date) {
+            $.ajax({
+                url: "forecast.php",
+                type: "POST",
+                data: {
+                    start_date: start_date,
+                    end_date: end_date
+                },
+                dataType: "json",
+                success: function(forecast) {
+                    var i = "1";
+                    $('#records').DataTable({
+                        "pageLength": 7,
+                        //"lengthMenu": [[10, 25, 50], [10, 25, 50]]
+                        "data": forecast,
+                        "dom":  "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
+                                "<'row'<'col-sm-12'tr>>" +
+                                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                        "buttons": [
+                            'copy', 'excel'
+                        ],
+                        // responsive
+                        "responsive": true,
+                        "columns": [{
+                            "width": "2%",
+                            "data": "id",
+                            "render": function(data, type, row, meta) {
+                                return i++;
+                                }
+                            }, {
+                                "width": "5%",
+                                "data": "pubDate",
+                                "render": function(data, type, row, meta) {
+                                    return moment(row.pubDate).format('DD-MM-YYYY h:mm A');
+                                }
+                            }, {
+                                "data": "region",
+                                "width": "15%"
+                            }, {
+                                "data" : "province_1",
+                                "width": "10%"
+                            }, {
+                                "data" : "province_2",
+                                "width": "10%"
+                            }, {
+                                "data" : "province_3",
+                                "width": "10%"
+                            }, {
+                                "data" : "province_4",
+                                "width": "10%"
+                            }, {
+                                "data" : "description",
+                            }
+                        ]
+                    });
+                }
+            });
+        }
+        fetch();
+
+        // Filter
+        $(document).on("click", "#filter", function(e) {
+            e.preventDefault();
+            var start_date = $("#start_date").val();
+            var end_date = $("#end_date").val();
+            if (start_date == "" || end_date == "") {
+                alert("โปรดเลือกทั้ง 2 ข้างในการกรองช้อมูล");
+            } else {
+                $('#records').DataTable().destroy();
+                fetch(start_date, end_date);
+            }
+        });
+
+        // Reset
+        $(document).on("click", "#reset", function(e) {
+            e.preventDefault();
+
+            $("#start_date").val(''); // empty value
+            $("#end_date").val('');
+
+            $('#records').DataTable().destroy();
+            fetch();
+        });
+
+    </script>
+
 </body>
 </html>
