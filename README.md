@@ -16,4 +16,5 @@ Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </
 will backup data from api of TMD at 6.00am, 12.00am, 5.00pm, 11.00pm every day<br/>
 I using tool in hosting server to run script backup data from TMD<br/>
 thank you api XML data from <a href="https://www.tmd.go.th/">TMD, TH</a>
+api free from me backup : http://pharadorn.lnw.mn/WeatherForecast/historical_api/forecast.php
 <p align="center">© 2021 <a href="https://www.facebook.com/PharadornB/">Phradorn Boonruam</a> Open-Source</p>
