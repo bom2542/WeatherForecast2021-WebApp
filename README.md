@@ -9,8 +9,8 @@ Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </
 # Describe
 # How to using application
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/1.JPG)<br/>
-![alt text](http://student.sut.ac.th/b6134228/imgkoratlrt2020/2.JPG)<br/>
-![alt text](http://student.sut.ac.th/b6134228/imgkoratlrt2020/3.JPG)<br/>
-![alt text](http://student.sut.ac.th/b6134228/imgkoratlrt2020/4.JPG)<br/>
-![alt text](http://student.sut.ac.th/b6134228/imgkoratlrt2020/5.JPG)<br/>
+![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/2.JPG)<br/>
+![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/3.JPG)<br/>
+![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/4.JPG)<br/>
+![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/5.JPG)<br/>
 <p align="center">© 2020 <a href="https://www.facebook.com/PharadornB/">Phradorn Boonruam</a> Open-Source</p>
