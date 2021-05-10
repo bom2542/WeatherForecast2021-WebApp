@@ -17,13 +17,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.css" />
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- icon title file -->
+    <link rel = "icon" href = "img/icon.png" type = "image/x-icon">
     <!-- css internal -->
     <link rel="stylesheet" href="style.css">
     <!-- css inline -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Prompt', sans-serif;
         }
+
         p {
             overflow: hidden;
             display: -webkit-box;
@@ -31,9 +38,62 @@
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
         }
+
+        .loader {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader > img {
+            width: 100px;
+        }
+
+        .loader.hidden {
+            animation: fadeOut 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .thumb {
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        #topBtn{
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            font-size: 22px;
+            width: 50px;
+            height: 50px;
+            background: #D21F3C;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
-<body>
+<body id="body-pd">
+
+    <div class="loader">
+        <img src="img/loader.gif" />
+    </div>
 
     <div class="container">
         <!-- Topic -->
@@ -526,6 +586,8 @@
         </div>
     </div>
 
+    <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
     <!-- jQuery first -->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <!-- Boostrap js v5 -->
@@ -544,6 +606,25 @@
 
     <!-- Use datepicker from jquery -->
     <script>
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden"; // class "loader hidden"
+        });
+
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 40){
+                    $('#topBtn').fadeIn();
+                } else{
+                    $('#topBtn').fadeOut();
+                }
+            });
+
+            $("#topBtn").click(function(){
+                $('html ,body').animate({scrollTop : 0},800);
+            });
+        });
+
         $(function() {
             $("#start_date").datepicker({
                 "dateFormat": "dd/mm/yy"
