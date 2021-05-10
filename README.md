@@ -16,4 +16,4 @@ Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </
 จะมีการเก็บข้อมูลย้อนหลังตามการอัพเดตของกรมอุตุนิยมวิทยา ในเวลา 06.00/12.00/17.00/23.00 ของทุกๆวัน<br/>
 โดยให้ server ในฟีเจอร์หนึ่งช่วยในการรันสคริปต์เพื่อการสำรองข้อมูล<br/>
 ขอบคุณ API แบบ XML จาก <a href="https://www.tmd.go.th/">กรมอุตุนิยมวิทยา ประเทศไทย</a>
-<p align="center">© 2020 <a href="https://www.facebook.com/PharadornB/">Phradorn Boonruam</a> Open-Source</p>
+<p align="center">© 2021 <a href="https://www.facebook.com/PharadornB/">Phradorn Boonruam</a> Open-Source</p>
