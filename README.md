@@ -13,7 +13,7 @@ Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/4.JPG)<br/>
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/5.JPG)<br/>
 # note
-จะมีการเก็บข้อมูลย้อนหลังตามการอัพเดตของกรมอุตุนิยมวิทยา ในเวลา 06.00/12.00/17.00/23.00 ของทุกๆวัน<br/>
-โดยให้ server ในฟีเจอร์หนึ่งช่วยในการรันสคริปต์เพื่อการสำรองข้อมูล<br/>
-ขอบคุณ API แบบ XML จาก <a href="https://www.tmd.go.th/">กรมอุตุนิยมวิทยา ประเทศไทย</a>
+will backup data from api of TMD at 6.00am, 12.00am, 5.00pm, 11.00pm every day<br/>
+I using tool in hosting server to run script backup data from TMD<br/>
+thank you api XML data from <a href="https://www.tmd.go.th/">TMD, TH</a>
 <p align="center">© 2021 <a href="https://www.facebook.com/PharadornB/">Phradorn Boonruam</a> Open-Source</p>
