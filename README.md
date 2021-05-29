@@ -3,8 +3,6 @@ Name : WEATHER FORECAST DAILY IN REGION OF THAILAND<br/>
 This project is Weather Forecast 2021 update daily and have historical data scope of map is region in thailand, Prior Solution Co.,Ltd. - Bangkok
 # Demo
 http://pharadorn.lnw.mn/WeatherForecast/
-# About
-About is : PHP, XML, JQuery, Json, MySQL, JS, AJAX, DataTable
 # Developer
 Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </a><br/>
 # How to using application
