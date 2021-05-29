@@ -1,6 +1,5 @@
 # WeatherForecast2021-WebApp
-TH name : เว็บแอพลิเคชั่นแสดงผลการพยากรณ์อากาศประจำวัน ระดับภูมิภาค ปัจจุบันและย้อนหลัง<br/>
-EN name : Weather forecast daily in region of thailand<br/>
+Name : WEATHER FORECAST DAILY IN REGION OF THAILAND<br/>
 This project is Weather Forecast 2021 update daily and have historical data scope of map is region in thailand, Prior Solution Co.,Ltd.
 # Demo
 http://pharadorn.lnw.mn/WeatherForecast/
