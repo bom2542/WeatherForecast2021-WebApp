@@ -5,7 +5,7 @@ This project is Weather Forecast 2021 update daily and have historical data scop
 http://pharadorn.lnw.mn/WeatherForecast/
 # Developer
 Dev by : <a href="https://www.facebook.com/PharadornB/">Mr.Pharadorn Boonruam </a><br/>
-# How to using application
+# Interface
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/1.JPG)<br/>
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/2.JPG)<br/>
 ![alt text](http://student.sut.ac.th/b6134228/imgweatherforecast/3.JPG)<br/>
